@@ -61,6 +61,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        pole: {
+          career: "hsl(var(--pole-career))",
+          employment: "hsl(var(--pole-employment))",
+          logistics: "hsl(var(--pole-logistics))",
+          culture: "hsl(var(--pole-culture))",
+          tricks: "hsl(var(--pole-tricks))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -100,6 +107,18 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "orbit": {
+          "0%": { transform: "rotate(0deg) translateX(120px) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(120px) rotate(-360deg)" },
+        },
+        "orbit-reverse": {
+          "0%": { transform: "rotate(0deg) translateX(160px) rotate(0deg)" },
+          "100%": { transform: "rotate(-360deg) translateX(160px) rotate(360deg)" },
+        },
+        "blob": {
+          "0%, 100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
+          "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -110,6 +129,9 @@ export default {
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
         "shimmer": "shimmer 3s ease-in-out infinite",
+        "orbit": "orbit 20s linear infinite",
+        "orbit-reverse": "orbit-reverse 25s linear infinite",
+        "blob": "blob 8s ease-in-out infinite",
       },
     },
   },
