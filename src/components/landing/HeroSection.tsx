@@ -39,10 +39,8 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight"
             >
-              Tu n'es pas seul
-              <br />
-              dans ton{" "}
-              <span className="text-gradient">parcours</span>
+              Ton copilote{" "}
+              <span className="text-gradient">étudiant</span>
             </motion.h1>
 
             <motion.p
@@ -128,15 +126,29 @@ const HeroSection = () => {
                   <motion.div
                     key={item.label}
                     initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 + item.delay * 0.15 }}
-                    className="absolute top-1/2 left-1/2 animate-float"
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: [0, -8, 0],
+                    }}
+                    transition={{
+                      opacity: { duration: 0.5, delay: 0.6 + item.delay * 0.15 },
+                      scale: { duration: 0.5, delay: 0.6 + item.delay * 0.15 },
+                      y: {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: item.delay * 0.6,
+                      },
+                    }}
+                    className="absolute"
                     style={{
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      animationDelay: `${item.delay * 0.8}s`,
+                      top: `calc(50% + ${y}px)`,
+                      left: `calc(50% + ${x}px)`,
+                      transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <div className="flex items-center gap-2.5 glass rounded-2xl px-4 py-3 shadow-lg card-hover cursor-default">
+                    <div className="flex items-center gap-2.5 glass rounded-2xl px-4 py-3 shadow-lg cursor-default">
                       <div className={`w-9 h-9 rounded-xl ${item.color.split(" ")[0]} flex items-center justify-center`}>
                         <item.icon className={`w-4 h-4 ${item.color.split(" ")[1]}`} />
                       </div>
