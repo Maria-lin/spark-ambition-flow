@@ -97,22 +97,30 @@ const HeroSection = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="relative hidden lg:flex items-center justify-center"
           >
-            <div className="relative w-[480px] h-[480px]">
-              {/* Center hub */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-primary/10 flex items-center justify-center z-10">
-                <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center">
-                  <GraduationCap className="w-10 h-10 text-primary" />
-                </div>
-              </div>
+            <div className="relative w-[520px] h-[520px]">
+              {/* Outer glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-primary/[0.06] blur-2xl" />
 
               {/* Orbit rings */}
-              <div className="absolute inset-12 rounded-full border border-border/40" />
-              <div className="absolute inset-0 rounded-full border border-border/20" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-border/30" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] rounded-full border border-border/15" />
+
+              {/* Center hub */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center glow-primary">
+                  <div className="w-22 h-22 rounded-full bg-primary/20 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/30 flex items-center justify-center">
+                      <GraduationCap className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs font-display font-semibold text-primary text-center mt-2">Copilote IA</p>
+              </div>
 
               {/* Orbiting items */}
               {orbitItems.map((item, i) => {
-                const angle = (i / orbitItems.length) * 360;
-                const radius = i % 2 === 0 ? 180 : 210;
+                const angle = -90 + (i / orbitItems.length) * 360;
+                const radius = 200;
                 const x = Math.cos((angle * Math.PI) / 180) * radius;
                 const y = Math.sin((angle * Math.PI) / 180) * radius;
 
@@ -128,7 +136,7 @@ const HeroSection = () => {
                       animationDelay: `${item.delay * 0.8}s`,
                     }}
                   >
-                    <div className={`flex items-center gap-2.5 glass rounded-2xl px-4 py-3 shadow-lg card-hover cursor-default`}>
+                    <div className="flex items-center gap-2.5 glass rounded-2xl px-4 py-3 shadow-lg card-hover cursor-default">
                       <div className={`w-9 h-9 rounded-xl ${item.color.split(" ")[0]} flex items-center justify-center`}>
                         <item.icon className={`w-4 h-4 ${item.color.split(" ")[1]}`} />
                       </div>
